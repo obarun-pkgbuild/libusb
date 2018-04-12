@@ -4,8 +4,8 @@
 # 						Contributor: Tobias Powalowski <tpowa@archlinux.org>
 
 pkgname=libusb
-pkgver=1.0.21
-pkgrel=3
+pkgver=1.0.22
+pkgrel=2
 pkgdesc='Library that provides generic access to USB devices'
 arch=(x86_64)
 url='http://libusb.info/'
@@ -15,13 +15,13 @@ replaces=('libusb1' 'libusbx')
 provides=("libusbx=$pkgver" libusb-1.0.so)
 conflicts=('libusbx')
 source=(https://github.com/libusb/libusb/releases/download/v$pkgver/libusb-$pkgver.tar.bz2)
-md5sums=('1da9ea3c27b3858fa85c5f4466003e44')
+md5sums=('466267889daead47674df933cea9cacb')
 validpgpkeys=('6DD4217456569BA711566AC7F06E8FDE7B45DAAC') # Eric Vidal
 
 build() {
   cd ${pkgname}-$pkgver
   ./configure --prefix=/usr 
-  make -j1
+  make
 }
 
 check() {
